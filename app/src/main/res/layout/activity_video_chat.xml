@@ -24,15 +24,27 @@
                 android:gravity="center"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
+
             <ToggleButton
-                android:id="@+id/toggleButton"
-                android:layout_width="wrap_content"
+                android:id="@+id/videoToggle"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:checked="true"
                 android:text="ToggleButton"
                 android:textOff="Video ON"
-                android:textOn="VIdeo OFF"
+                android:textOn="Video OFF"
+                tools:text="N" />
+
+            <ToggleButton
+                android:id="@+id/audioToggle"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="ToggleButton"
+                android:textOff="Audio ON"
+                android:textOn="Audio OFF"
                 tools:text="N" />
 
             <Button

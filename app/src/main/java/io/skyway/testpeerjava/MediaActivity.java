@@ -54,6 +54,7 @@ public class MediaActivity
     private String[] _listPeerIds;
     private boolean _bCalling;
     private boolean _videoEnabled = true;
+    private boolean _audioEnabled = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,13 +141,24 @@ public class MediaActivity
             }
         });
 
-        final ToggleButton videoOnOffButon = (ToggleButton) findViewById(R.id.toggleButton);
-        videoOnOffButon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        final ToggleButton videoOnOffButton = (ToggleButton) findViewById(R.id.videoToggle);
+        videoOnOffButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 _videoEnabled = b;
                 for (int i = 0; i < _msLocal.getVideoTracks(); ++i) {
                     _msLocal.setEnableVideoTrack(i, _videoEnabled);
+                }
+            }
+        });
+
+        final ToggleButton audioOnOffButton = (ToggleButton) findViewById(R.id.audioToggle);
+        audioOnOffButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                _audioEnabled = b;
+                for (int i = 0; i < _msLocal.getAudioTracks(); ++i) {
+                    _msLocal.setEnableAudioTrack(i, _audioEnabled);
                 }
             }
         });
