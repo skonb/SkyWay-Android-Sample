@@ -1,40 +1,57 @@
+buildscript {
+    ext.kotlin_version = '1.1.2'
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+    }
+}
 apply plugin: 'com.android.application'
-
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 
 repositories {
-	mavenLocal()
+    mavenLocal()
 //	mavenCentral()
 }
 
 android {
-	compileSdkVersion 25
-	buildToolsVersion "25.0.3"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
 
-	defaultConfig {
-		applicationId "io.skyway.skw_sample"
-		minSdkVersion 15
-		targetSdkVersion 25
-		versionCode 1
-		versionName "1.0"
-	}
+    defaultConfig {
+        applicationId "io.skyway.skw_sample"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
 
-	buildTypes {
-		release {
-			minifyEnabled false
-			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-		}
-	}
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {
-	compile (name:'SkyWay',ext:'aar')
-	compile 'com.android.support:appcompat-v7:25.3.1'
-	compile 'com.android.support:support-v4:25.3.1'
+    compile(name: 'SkyWay', ext: 'aar')
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.github.bassaer:chatmessageview:1.3.3'
+    compile 'com.amazonaws:aws-android-sdk-iot:+'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
 }
 
-repositories{
-	flatDir{
-		dirs 'libs'
-	}
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
 }
