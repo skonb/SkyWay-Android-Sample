@@ -360,6 +360,8 @@ public class MediaActivity
         CallOption option = new CallOption();
 
         _media = _peer.call(strPeerId, _msLocal, option);
+        updateTopic(_id);
+        startListeningMQTTTopic();
 
         if (null != _media) {
             setMediaCallback(_media);
